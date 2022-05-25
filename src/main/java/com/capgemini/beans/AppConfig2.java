@@ -4,15 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AppConfig {
+public class AppConfig2 {
 
-	// reemplaza al archivo beans.xml
 	@Bean
-	public HolaMundo mundo() {
+	public HolaMundo marte() {
 		return new HolaMundo();
-	}
-	
-	public Persona persona() {
-		return new Persona();
 	}
 }

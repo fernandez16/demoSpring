@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Value;
 
 public class HolaMundo {
 
-	@Value("oli asturias")
-	private String saludo = "oli";
+	@Value("oli @value")
+	private String saludo; // = "oli";
 
 	public String getSaludo() {
 		return saludo;
