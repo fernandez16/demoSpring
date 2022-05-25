@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.capgemini.beans.AppConfig;
 import com.capgemini.beans.AppConfig2;
+import com.capgemini.beans.Ciudad;
 import com.capgemini.beans.HolaMundo;
 import com.capgemini.beans.Persona;
 
@@ -29,6 +30,20 @@ public class App {
 		System.out.println(estaPersona.getId());
 		System.out.println(estaPersona.getNombre());
 		System.out.println(estaPersona.getApodo());
+		System.out.println(estaPersona.getPais().getNombre());
+		System.out.println(estaPersona.getPais().getCiudades());
+
+		for (Ciudad ciu: estaPersona.getPais().getCiudades()) {
+			System.out.println(ciu.getNombre());
+		}
+
+//		Persona estaSegundaPersona = (Persona) appContext.getBean("thisPersonsBean");
+//
+//		System.out.println(estaSegundaPersona.getId());
+//
+//		Persona estaTerceraPersona = (Persona) appContext.getBean("thisPersonsAlias");
+//
+//		System.out.println(estaTerceraPersona.getNombre());
 
 		((ConfigurableApplicationContext) appContext).close(); // libera los recursos
 	}
