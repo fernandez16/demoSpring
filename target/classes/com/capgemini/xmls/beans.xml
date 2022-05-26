@@ -2,96 +2,61 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- default-init-method="init" -->
+	<!-- default-destroy-method="destroy"> -->
 
-	<bean id="mundo" class="com.capgemini.beans.HolaMundo">
-		<property name="saludo" value="un saludo"></property>
-	</bean>
-
-	<!-- <bean id="persona" class="com.capgemini.beans.Persona"> -->
+	<!-- scope="prototype" -->
+	<!-- <bean id="person" class="com.capgemini.beans.Person" -->
+	<!-- autowire="byType" scope="singleton" lazy-init="true"> -->
 	<!-- <property name="id" value="1"></property> -->
-	<!-- <property name="nombre" value="qwertyqwertyqwertyqwertyqwerty"></property> -->
-	<!-- <property name="apodo" value="asdfasoiaf"></property> -->
+	<!-- <property name="nombre" value="qwerty"></property> -->
+	<!-- <property name="apodo" value="asdf"></property> -->
 	<!-- </bean> -->
-
-	<!-- <bean id="persona" class="com.capgemini.beans.Persona"> -->
-	<!-- <constructor-arg value="1"></constructor-arg> -->
-	<!-- <constructor-arg value="asdfasdfasdfasdfasdfasdfasdfasdfasdf"></constructor-arg> -->
-	<!-- <constructor-arg value="qwerty"></constructor-arg> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="persona" class="com.capgemini.beans.Persona"> -->
-	<!-- <constructor-arg type="int" value="1"></constructor-arg> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="persona" class="com.capgemini.beans.Persona"> -->
-	<!-- <constructor-arg type="int" index="0" value="1"></constructor-arg> -->
-	<!-- <constructor-arg type="String" index="2" -->
-	<!-- value="qwerty"></constructor-arg> -->
-	<!-- <constructor-arg type="String" index="1" -->
-	<!-- value="asdfasdfasdfasdfasdfasdfasdfasdfasdf"></constructor-arg> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="persona" class="com.capgemini.beans.Persona"> -->
-	<!-- <property name="id" value="1"></property> -->
+	<!-- <bean id="country" class="com.capgemini.beans.Country"> -->
 	<!-- <property name="nombre" -->
-	<!-- value="qwertyqwertyqwertyqwertyqwerty"></property> -->
-	<!-- <property name="apodo" value="asdfasoiaf"></property> -->
-	<!-- <property name="pais" ref="pais"></property> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="pais" class="com.capgemini.beans.Pais"> -->
-	<!-- <property name="nombre" value="Republica Democratica del Congo"></property> -->
-	<!-- <property name="ciudad" ref="ciudad"></property> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="ciudad" class="com.capgemini.beans.Ciudad"> -->
-	<!-- <property name="nombre" value="Harare"></property> -->
+	<!-- value="ashdjlfaspidfgaishdgfoaihsdgfhiagsdiofgasdifuyciwuernvqwefoqpwveiqwe"></property> -->
 	<!-- </bean> -->
 
 	<!-- <bean id="persona" class="com.capgemini.beans.Persona" -->
-	<!-- name="thisPersonsBean"> -->
-	<!-- <property name="id" value="1"></property> -->
+	<!-- autowire="byName" init-method="init" destroy-method="destroy"> -->
+	<!-- <property name="apodo" value="asdf"></property> -->
+	<!-- </bean> -->
+	<!-- <bean id="pais" class="com.capgemini.beans.Pais" autowire="byName"> -->
 	<!-- <property name="nombre" -->
-	<!-- value="qwertyqwertyqwertyqwertyqwerty"></property> -->
-	<!-- <property name="apodo" value="asdfasoiaf"></property> -->
-	<!-- <property name="pais"> -->
-	<!-- <bean id="pais" class="com.capgemini.beans.Pais"> -->
-	<!-- <property name="nombre" -->
-	<!-- value="Republica Democratica del Congo"></property> -->
-	<!-- <property name="ciudad"> -->
+	<!-- value="ashdjlfaspidfgaishdgfoaihsdgfhiagsdiofgasdifuyciwuernvqwefoqpwveiqwe"></property> -->
+	<!-- </bean> -->
 	<!-- <bean id="ciudad" class="com.capgemini.beans.Ciudad"> -->
-	<!-- <property name="nombre" value="Harare"></property> -->
+	<!-- <property name="nombre" -->
+	<!-- value="AAAAAAAAAAAAAAAAAAAAAAAAAAAA"></property> -->
 	<!-- </bean> -->
-	<!-- </property> -->
-	<!-- </bean> -->
-	<!-- </property> -->
-	<!-- </bean> -->
-	<!-- <alias name="persona" alias="thisPersonsAlias"></alias> -->
 
-	<bean id="persona" class="com.capgemini.beans.Persona">
-		<property name="id" value="1"></property>
-		<property name="nombre" value="Alejandra"></property>
-		<property name="apodo" value="Ale"></property>
-		<property name="pais" ref="pais"></property>
+	<!-- <bean id="persona" class="com.capgemini.beans.Persona" -->
+	<!-- autowire="byName"> -->
+	<!-- <property name="apodo" value="asdf"></property> -->
+	<!-- </bean> -->
+	<!-- <bean id="pais" class="com.capgemini.beans.Pais" autowire="byName"> -->
+	<!-- <property name="nombre" -->
+	<!-- value="ashdjlfaspidfgaishdgfoaihsdgfhiagsdiofgasdifuyciwuernvqwefoqpwveiqwe"></property> -->
+	<!-- </bean> -->
+	<!-- <bean id="ciudad" class="com.capgemini.beans.Ciudad"> -->
+	<!-- <property name="nombre" -->
+	<!-- value="AAAAAAAAAAAAAAAAAAAAAAAAAAAA"></property> -->
+	<!-- </bean> -->
+
+	<bean
+		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor">
 	</bean>
-	<bean id="pais" class="com.capgemini.beans.Pais">
-		<property name="nombre" value="Argentina"></property>
-		<property name="ciudades">
-			<list>
-				<ref bean="ciudad1"></ref>
-				<ref bean="ciudad2"></ref>
-				<ref bean="ciudad3"></ref>
-			</list>
-		</property>
+
+	<bean id="persona" class="com.capgemini.beans.Persona"
+		autowire="byName">
+		<property name="apodo" value="asdf"></property>
 	</bean>
-	<bean id="ciudad1" class="com.capgemini.beans.Ciudad">
-		<property name="nombre" value="Buenos Aires"></property>
+	<bean id="pais" class="com.capgemini.beans.Pais" autowire="byName">
+		<property name="nombre"
+			value="ashdjlfaspidfgaishdgfoaihsdgfhiagsdiofgasdifuyciwuernvqwefoqpwveiqwe"></property>
 	</bean>
-	<bean id="ciudad2" class="com.capgemini.beans.Ciudad">
-		<property name="nombre" value="Bogota"></property>
-	</bean>
-	<bean id="ciudad3" class="com.capgemini.beans.Ciudad">
-		<property name="nombre" value="Cancun"></property>
+	<bean id="ciudad" class="com.capgemini.beans.Ciudad">
+		<property name="nombre" value="AAAAAAAAAAAAAAAAAAAAAAAAAAAA"></property>
 	</bean>
 
 </beans>

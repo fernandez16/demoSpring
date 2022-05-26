@@ -8,6 +8,7 @@ import com.capgemini.beans.AppConfig;
 import com.capgemini.beans.AppConfig2;
 import com.capgemini.beans.Ciudad;
 import com.capgemini.beans.HolaMundo;
+import com.capgemini.beans.Person;
 import com.capgemini.beans.Persona;
 
 /**
@@ -18,83 +19,41 @@ public class App {
 
 	public static void main(String[] args) {
 
-//    	viejo modo:
-//    	HolaMundo m = new HolaMundo();
-//    	m.setSaludo("holaa");
-//    	System.out.println(m.getSaludo());
+		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/capgemini/xmls/beans.xml");
+
+		Persona thisPerson = (Persona) appContext.getBean("persona");
+
+		System.out.println(thisPerson);
+		System.out.println(thisPerson.getApodo());
+		System.out.println(thisPerson.getPais().getNombre());
+		System.out.println(thisPerson.getPais().getCiudad().getNombre());
+
+		((ConfigurableApplicationContext) appContext).close();
+	
+	}
+
+	public static void mainAlt(String[] args) {
 
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/capgemini/xmls/beans.xml");
 
-		Persona estaPersona = (Persona) appContext.getBean("persona");
+		Person thisPerson = (Person) appContext.getBean("person");
 
-		System.out.println(estaPersona.getId());
-		System.out.println(estaPersona.getNombre());
-		System.out.println(estaPersona.getApodo());
-		System.out.println(estaPersona.getPais().getNombre());
-		System.out.println(estaPersona.getPais().getCiudades());
+		System.out.println(thisPerson);
+		System.out.println(thisPerson.getId());
+		System.out.println(thisPerson.getNombre());
+		System.out.println(thisPerson.getApodo());
+		System.out.println(thisPerson.getCountry().getNombre());
 
-		for (Ciudad ciu: estaPersona.getPais().getCiudades()) {
-			System.out.println(ciu.getNombre());
-		}
+		Person thisSecondPerson = (Person) appContext.getBean("person");
 
-//		Persona estaSegundaPersona = (Persona) appContext.getBean("thisPersonsBean");
-//
-//		System.out.println(estaSegundaPersona.getId());
-//
-//		Persona estaTerceraPersona = (Persona) appContext.getBean("thisPersonsAlias");
-//
-//		System.out.println(estaTerceraPersona.getNombre());
+		System.out.println(thisSecondPerson);
+		System.out.println(thisSecondPerson.getId());
+		System.out.println(thisSecondPerson.getNombre());
+		System.out.println(thisSecondPerson.getApodo());
+		System.out.println(thisSecondPerson.getCountry().getNombre());
 
-		((ConfigurableApplicationContext) appContext).close(); // libera los recursos
-	}
-
-	public static void mainAlt3(String[] args) {
-
-		AnnotationConfigApplicationContext appContext = new AnnotationConfigApplicationContext();
-		appContext.register(AppConfig.class);
-		appContext.register(AppConfig2.class);
-		appContext.refresh();
-
-		HolaMundo hola = (HolaMundo) appContext.getBean("mundo");
-		HolaMundo hola2 = (HolaMundo) appContext.getBean("marte");
-
-		System.out.println(hola.getSaludo());
-		System.out.println(hola2.getSaludo());
-
-		((AnnotationConfigApplicationContext) appContext).close(); // libera los recursos
-
-	}
-
-	public static void mainAlt2(String[] args)
-
-	{
-		ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class, AppConfig2.class);
-
-		HolaMundo hola = (HolaMundo) appContext.getBean("mundo");
-		HolaMundo hola2 = (HolaMundo) appContext.getBean("marte");
-
-		System.out.println(hola.getSaludo());
-		System.out.println(hola2.getSaludo());
-
-		((AnnotationConfigApplicationContext) appContext).close(); // libera los recursos
-	}
-
-	public static void mainAlt1(String[] args) {
-
-//    	viejo modo:
-//    	HolaMundo m = new HolaMundo();
-//    	m.setSaludo("holaa");
-//    	System.out.println(m.getSaludo());
-
-		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/capgemini/xmls/beans.xml");
-
-		HolaMundo hola = (HolaMundo) appContext.getBean("mundo");
-		HolaMundo hola2 = appContext.getBean(HolaMundo.class);
-
-		System.out.println(hola.getSaludo());
-		System.out.println(hola2.getSaludo());
-
-		((ConfigurableApplicationContext) appContext).close(); // libera los recursos
+		((ConfigurableApplicationContext) appContext).close();
+	
 	}
 
 }

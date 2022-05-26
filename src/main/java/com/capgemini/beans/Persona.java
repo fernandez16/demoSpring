@@ -6,6 +6,14 @@ public class Persona {
 	private String nombre;
 	private String apodo;
 	private Pais pais;
+	
+	private void init() {
+		System.out.println("antes de iniciar el bean");
+	}
+	
+	private void destroy() {
+		System.out.println("apunto de destruir el bean");
+	}
 
 	public Persona() {}
 
