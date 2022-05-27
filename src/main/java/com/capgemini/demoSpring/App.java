@@ -8,6 +8,7 @@ import com.capgemini.beans.AppConfig;
 import com.capgemini.beans.AppConfig2;
 import com.capgemini.beans.Ciudad;
 import com.capgemini.beans.HolaMundo;
+import com.capgemini.beans.Jugador;
 import com.capgemini.beans.Person;
 import com.capgemini.beans.Persona;
 
@@ -21,39 +22,13 @@ public class App {
 
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/capgemini/xmls/beans.xml");
 
-		Persona thisPerson = (Persona) appContext.getBean("persona");
+		Jugador messi = (Jugador) appContext.getBean("Messi");
 
-		System.out.println(thisPerson);
-		System.out.println(thisPerson.getApodo());
-		System.out.println(thisPerson.getPais().getNombre());
-		System.out.println(thisPerson.getPais().getCiudad().getNombre());
-
-		((ConfigurableApplicationContext) appContext).close();
-	
-	}
-
-	public static void mainAlt(String[] args) {
-
-		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/capgemini/xmls/beans.xml");
-
-		Person thisPerson = (Person) appContext.getBean("person");
-
-		System.out.println(thisPerson);
-		System.out.println(thisPerson.getId());
-		System.out.println(thisPerson.getNombre());
-		System.out.println(thisPerson.getApodo());
-		System.out.println(thisPerson.getCountry().getNombre());
-
-		Person thisSecondPerson = (Person) appContext.getBean("person");
-
-		System.out.println(thisSecondPerson);
-		System.out.println(thisSecondPerson.getId());
-		System.out.println(thisSecondPerson.getNombre());
-		System.out.println(thisSecondPerson.getApodo());
-		System.out.println(thisSecondPerson.getCountry().getNombre());
+		System.out.println(messi.getId());
+		System.out.println(messi.getNombre());
+		System.out.println(messi.getIequipo().mostrar());
 
 		((ConfigurableApplicationContext) appContext).close();
-	
-	}
 
+	}
 }

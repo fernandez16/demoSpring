@@ -2,61 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<!-- default-init-method="init" -->
-	<!-- default-destroy-method="destroy"> -->
 
-	<!-- scope="prototype" -->
-	<!-- <bean id="person" class="com.capgemini.beans.Person" -->
-	<!-- autowire="byType" scope="singleton" lazy-init="true"> -->
-	<!-- <property name="id" value="1"></property> -->
-	<!-- <property name="nombre" value="qwerty"></property> -->
-	<!-- <property name="apodo" value="asdf"></property> -->
-	<!-- </bean> -->
-	<!-- <bean id="country" class="com.capgemini.beans.Country"> -->
-	<!-- <property name="nombre" -->
-	<!-- value="ashdjlfaspidfgaishdgfoaihsdgfhiagsdiofgasdifuyciwuernvqwefoqpwveiqwe"></property> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="persona" class="com.capgemini.beans.Persona" -->
-	<!-- autowire="byName" init-method="init" destroy-method="destroy"> -->
-	<!-- <property name="apodo" value="asdf"></property> -->
-	<!-- </bean> -->
-	<!-- <bean id="pais" class="com.capgemini.beans.Pais" autowire="byName"> -->
-	<!-- <property name="nombre" -->
-	<!-- value="ashdjlfaspidfgaishdgfoaihsdgfhiagsdiofgasdifuyciwuernvqwefoqpwveiqwe"></property> -->
-	<!-- </bean> -->
-	<!-- <bean id="ciudad" class="com.capgemini.beans.Ciudad"> -->
-	<!-- <property name="nombre" -->
-	<!-- value="AAAAAAAAAAAAAAAAAAAAAAAAAAAA"></property> -->
-	<!-- </bean> -->
-
-	<!-- <bean id="persona" class="com.capgemini.beans.Persona" -->
-	<!-- autowire="byName"> -->
-	<!-- <property name="apodo" value="asdf"></property> -->
-	<!-- </bean> -->
-	<!-- <bean id="pais" class="com.capgemini.beans.Pais" autowire="byName"> -->
-	<!-- <property name="nombre" -->
-	<!-- value="ashdjlfaspidfgaishdgfoaihsdgfhiagsdiofgasdifuyciwuernvqwefoqpwveiqwe"></property> -->
-	<!-- </bean> -->
-	<!-- <bean id="ciudad" class="com.capgemini.beans.Ciudad"> -->
-	<!-- <property name="nombre" -->
-	<!-- value="AAAAAAAAAAAAAAAAAAAAAAAAAAAA"></property> -->
-	<!-- </bean> -->
-
-	<bean
-		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor">
+	<bean id="Messi" class="com.capgemini.beans.Jugador">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Lionel Messi"></property>
+		<property name="iequipo" ref="barcelona"></property>
 	</bean>
-
-	<bean id="persona" class="com.capgemini.beans.Persona"
-		autowire="byName">
-		<property name="apodo" value="asdf"></property>
-	</bean>
-	<bean id="pais" class="com.capgemini.beans.Pais" autowire="byName">
-		<property name="nombre"
-			value="ashdjlfaspidfgaishdgfoaihsdgfhiagsdiofgasdifuyciwuernvqwefoqpwveiqwe"></property>
-	</bean>
-	<bean id="ciudad" class="com.capgemini.beans.Ciudad">
-		<property name="nombre" value="AAAAAAAAAAAAAAAAAAAAAAAAAAAA"></property>
+	
+	<bean id="barcelona" class="com.capgemini.beans.Barcelona">
 	</bean>
 
 </beans>

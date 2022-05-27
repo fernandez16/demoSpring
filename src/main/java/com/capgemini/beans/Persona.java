@@ -1,21 +1,40 @@
 package com.capgemini.beans;
 
-public class Persona {
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class Persona implements InitializingBean, DisposableBean {
 
 	private int id;
 	private String nombre;
 	private String apodo;
 	private Pais pais;
-	
-	private void init() {
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
 		System.out.println("antes de iniciar el bean");
 	}
-	
-	private void destroy() {
+
+	@Override
+	public void destroy() throws Exception {
 		System.out.println("apunto de destruir el bean");
 	}
 
-	public Persona() {}
+//	@PostConstruct
+//	private void init() {
+//		System.out.println("antes de iniciar el bean");
+//	}
+//	
+//	@PreDestroy
+//	private void destroy() {
+//		System.out.println("apunto de destruir el bean");
+//	}
+
+	public Persona() {
+	}
 
 	public Persona(int id) {
 		this.id = id;
