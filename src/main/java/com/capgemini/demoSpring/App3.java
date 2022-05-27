@@ -16,13 +16,13 @@ import com.capgemini.beans.Persona;
  * Hello world!
  *
  */
-public class App {
+public class App3 {
 
 	public static void main(String[] args) {
 
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("com/capgemini/xmls/beans.xml");
 
-		Jugador messi = (Jugador) appContext.getBean("messi");
+		Jugador messi = (Jugador) appContext.getBean("Messi");
 
 		System.out.println(messi.getId());
 		System.out.println(messi.getNombre());

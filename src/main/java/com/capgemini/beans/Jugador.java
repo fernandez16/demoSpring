@@ -1,10 +1,19 @@
 package com.capgemini.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component("messi")
 public class Jugador{
 	
 	private int id;
+	
+	@Value("Lionel Messi")
 	private String nombre;
-	private IEquipo iequipo;
+	
+	@Autowired
+	private IEquipo equipo;
 
 	public int getId() {
 		return id;
@@ -22,12 +31,12 @@ public class Jugador{
 		this.nombre = nombre;
 	}
 
-	public IEquipo getIequipo() {
-		return iequipo;
+	public IEquipo getEquipo() {
+		return equipo;
 	}
 
-	public void setIequipo(IEquipo iequipo) {
-		this.iequipo = iequipo;
+	public void setEquipo(IEquipo equipo) {
+		this.equipo = equipo;
 	}
 
 }
